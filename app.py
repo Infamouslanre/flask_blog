@@ -20,6 +20,7 @@ def get_post(post_id):
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'lanre321'
 
+
 @app.route('/')
 def index():
     conn = get_db_connection()
