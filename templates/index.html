@@ -1,15 +1,19 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>{% block title %} Feed {% endblock %}</h1>
-    {% for post in posts %}
-        <a href={{ url_for('post', post_id=post['id']) }}>
-            <h2>{{ post['title']}}</h2>
-        </a>
-        <p>{{post['content']}}</p>
-        <span class="badge rounded-pill bg-primary">{{ post['created'] }}</span>
-        <a href="{{ url_for('edit', id=post['id']) }}">
-            <span class="badge rounded-pill bg-warning test-dark">Edit</span>
-        </a>
-    {% endfor %}
+<div class="position-relative">
+    <div class="position-absolute top-50 start-50 translate-middle">
+        <h1>{% block title %} Feed {% endblock %}</h1>
+            {% for post in posts %}
+                <a href={{ url_for('post', post_id=post['id']) }}>
+                <h2>{{ post['title']}}</h2>
+                </a>
+                <p>{{post['content']}}</p>
+                <span class="badge rounded-pill bg-primary">{{ post['created'] }}</span>
+                <a href="{{ url_for('edit', id=post['id']) }}">
+                <span class="badge rounded-pill bg-warning test-dark">Edit</span>
+                </a>
+            {% endfor %} 
+    </div>
+</div>
 {% endblock %}
